@@ -14,7 +14,7 @@ const img_routes = require('./router/img')
 // utils
 dotenv.config();
 const app = express();
-const PORT = process.env.NODE_PORT || 8080;
+const PORT = process.env.NODE_PORT || 5000;
 // app.use(morgan("dev"));
 app.use(morgan('dev'))
 app.use(bodyParser.json());
