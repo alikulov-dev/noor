@@ -23,7 +23,7 @@ router.post('/upload', upload.single('myFile'), async (req, res, next) => {
 
 
     const imagepost = new img({
-        image: file.path
+        image: 'https://noor98.herokuapp.com/'+file.path
     })
     const savedimage = await imagepost.save()
     res.json(savedimage)
