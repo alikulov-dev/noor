@@ -8,7 +8,7 @@ var storage = multer.diskStorage({
         cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
-        cb(null,"https://noor98.herokuapp.com/"+file.originalname)
+        cb(null, new Date().toISOString() + file.originalname)
     }
 })
 
@@ -23,7 +23,7 @@ router.post('/upload', upload.single('myFile'), async (req, res, next) => {
 
 
     const imagepost = new img({
-        image: file.path
+        image: file
     })
     const savedimage = await imagepost.save()
     res.json(savedimage)
