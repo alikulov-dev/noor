@@ -8,10 +8,10 @@ var storage = multer.diskStorage({
         cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
-        cb(null, new Date().toISOString() +''+ file.originalname)
+        cb(null, new Date().toISOString())
     }
 })
-
+console.log(file.path)
 var upload = multer({ storage: storage })
 router.post('/upload', upload.single('myFile'), async (req, res, next) => {
     const file = req.file
