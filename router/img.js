@@ -11,10 +11,11 @@ var storage = multer.diskStorage({
         cb(null, new Date().toISOString())
     }
 })
-console.log(file.path)
+
 var upload = multer({ storage: storage })
 router.post('/upload', upload.single('myFile'), async (req, res, next) => {
     const file = req.file
+    console.log(file.path)    
     if (!file) {
         const error = new Error('Please upload a file')
         error.httpStatusCode = 400
